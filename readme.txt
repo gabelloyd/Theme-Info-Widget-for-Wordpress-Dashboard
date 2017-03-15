@@ -38,7 +38,7 @@ require WPMU_PLUGIN_DIR.'/ltc-theme-info-widget/ltc-theme-info-widget.php';
 
 = How do I contribute? =
 
-We encourage everyone to contribute their ideas, thoughts and code snippets. This can be done by forking the [repository over at GitHub](http://github.com/gabelloyd/ltc-theme-info-widget/).
+We encourage everyone to contribute their ideas, thoughts and code snippets. This can be done by forking the [repository over at GitHub](https://github.com/gabelloyd/Theme-Info-Widget-for-Wordpress-Dashboard).
 
 == Screenshots ==
 
