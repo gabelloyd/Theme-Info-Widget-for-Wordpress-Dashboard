@@ -1,48 +1,48 @@
 <?php
 /**
- * Plugin Name: Starter Plugin
- * Plugin URI: http://domain.com/starter-plugin/
- * Description: Hey there! I'm your new starter plugin.
+ * Plugin Name: Theme Info Widget
+ * Plugin URI: http://domain.com/ltc-theme-info-widget/
+ * Description: Display the current theme info in the dashboard
  * Version: 1.0.0
- * Author: Matty
- * Author URI: http://domain.com/
+ * Author: Gabe Lloyd
+ * Author URI: https://longtailcreative.com
  * Requires at least: 4.0.0
  * Tested up to: 4.0.0
  *
- * Text Domain: starter-plugin
+ * Text Domain: ltc-theme-info-widget
  * Domain Path: /languages/
  *
- * @package Starter_Plugin
+ * @package LTC_Theme_Info_Widget
  * @category Core
- * @author Matty
+ * @author Gabe Lloyd
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Returns the main instance of Starter_Plugin to prevent the need to use globals.
+ * Returns the main instance of LTC_Theme_Info_Widget to prevent the need to use globals.
  *
  * @since  1.0.0
- * @return object Starter_Plugin
+ * @return object LTC_Theme_Info_Widget
  */
-function Starter_Plugin() {
-	return Starter_Plugin::instance();
-} // End Starter_Plugin()
+function LTC_Theme_Info_Widget() {
+	return LTC_Theme_Info_Widget::instance();
+} // End LTC_Theme_Info_Widget()
 
-add_action( 'plugins_loaded', 'Starter_Plugin' );
+add_action( 'plugins_loaded', 'LTC_Theme_Info_Widget' );
 
 /**
- * Main Starter_Plugin Class
+ * Main LTC_Theme_Info_Widget Class
  *
- * @class Starter_Plugin
+ * @class LTC_Theme_Info_Widget
  * @version	1.0.0
  * @since 1.0.0
- * @package	Starter_Plugin
- * @author Matty
+ * @package	LTC_Theme_Info_Widget
+ * @author Gabe Lloyd
  */
-final class Starter_Plugin {
+final class LTC_Theme_Info_Widget {
 	/**
-	 * Starter_Plugin The single instance of Starter_Plugin.
+	 * LTC_Theme_Info_Widget The single instance of LTC_Theme_Info_Widget.
 	 * @var 	object
 	 * @access  private
 	 * @since 	1.0.0
@@ -114,42 +114,28 @@ final class Starter_Plugin {
 	 * @since   1.0.0
 	 */
 	public function __construct () {
-		$this->token 			= 'starter-plugin';
+		$this->token 			= 'ltc-theme-info-widget';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
 		$this->version 			= '1.0.0';
 
-		// Admin - Start
-		require_once( 'classes/class-starter-plugin-settings.php' );
-			$this->settings = Starter_Plugin_Settings::instance();
+		define( 'LTC_THEME_INFO_WIDGET', plugin_dir_path( __FILE__ ) );
 
-		if ( is_admin() ) {
-			require_once( 'classes/class-starter-plugin-admin.php' );
-			$this->admin = Starter_Plugin_Admin::instance();
-		}
-		// Admin - End
-
-		// Post Types - Start
-		require_once( 'classes/class-starter-plugin-post-type.php' );
-		require_once( 'classes/class-starter-plugin-taxonomy.php' );
-
-		// Register an example post type. To register other post types, duplicate this line.
-		$this->post_types['thing'] = new Starter_Plugin_Post_Type( 'thing', __( 'Thing', 'starter-plugin' ), __( 'Things', 'starter-plugin' ), array( 'menu_icon' => 'dashicons-carrot' ) );
-		// Post Types - End
-		register_activation_hook( __FILE__, array( $this, 'install' ) );
+		// Get the plugin functions 
+		require_once(LTC_THEME_INFO_WIDGET . 'functions.php');
 
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 	} // End __construct()
 
 	/**
-	 * Main Starter_Plugin Instance
+	 * Main LTC_Theme_Info_Widget Instance
 	 *
-	 * Ensures only one instance of Starter_Plugin is loaded or can be loaded.
+	 * Ensures only one instance of LTC_Theme_Info_Widget is loaded or can be loaded.
 	 *
 	 * @since 1.0.0
 	 * @static
-	 * @see Starter_Plugin()
-	 * @return Main Starter_Plugin instance
+	 * @see LTC_Theme_Info_Widget()
+	 * @return Main LTC_Theme_Info_Widget instance
 	 */
 	public static function instance () {
 		if ( is_null( self::$_instance ) )
@@ -163,7 +149,7 @@ final class Starter_Plugin {
 	 * @since   1.0.0
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'starter-plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'ltc-theme-info-widget', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	} // End load_plugin_textdomain()
 
 	/**
