@@ -117,7 +117,7 @@ final class LTC_Theme_Info_Widget {
 		$this->token 			= 'ltc-theme-info-widget';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.0.0';
+		$this->version 			= '1.1.0';
 
 		define( 'LTC_THEME_INFO_WIDGET', plugin_dir_path( __FILE__ ) );
 
