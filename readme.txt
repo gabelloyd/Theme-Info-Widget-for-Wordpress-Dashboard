@@ -4,7 +4,7 @@ Donate link: https://longtailcreative.com
 Tags: wordpress, dashboard
 Requires at least: 4.4
 Tested up to: 4.7.3
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -46,6 +46,11 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+* March 17, 2017
+* Add further dashboard white labeling for bottom left area
+* Remove a few dashboard widgets that are distracting and confusing for clients
 
 = 1.0.0 =
 * March 15, 2017
